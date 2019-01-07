@@ -225,8 +225,7 @@ public final class TimeUtil {
 	public static Date parseDate(String date, String pattern) {
 		try {
 			SimpleDateFormat format = new SimpleDateFormat(pattern);
-			Date date1= format.parse(date);
-			return date1;
+			return format.parse(date);
 		}
 		catch (Exception e) {
 			log.error("{},{}","日期格式化异常",e);

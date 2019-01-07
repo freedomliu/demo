@@ -30,7 +30,7 @@ import java.util.Map;
 /**
  * @Auther: liuxiangtao90
  * @Date: 2018/12/29 14:13
- * @Description:
+ * @Description: excel工具类
  */
 public final class ExcelUtil {
 
@@ -172,8 +172,7 @@ public final class ExcelUtil {
             fis = new FileInputStream(fileTemp);
             os = response.getOutputStream();
             byte[] buffer = new byte[1024];
-            int i;
-            while ((i = fis.read(buffer)) != -1) {
+            while ((fis.read(buffer)) != -1) {
                 os.write(buffer);
             }
         }
@@ -202,7 +201,7 @@ public final class ExcelUtil {
      * @param sheetName 要创建的表格索引
      * @param titleRow excel的第一行即表格头
      */
-    public  static<T> void createExcel(String fileDir, String sheetName, String titleRow[], String[] column, List<T> t)throws Exception {
+    public  static<T> void createExcel(String fileDir, String sheetName, String titleRow[], String[] column, List<T> t) {
         //创建workbook
         HSSFWorkbook workbook = new HSSFWorkbook();
         //添加Worksheet（不添加sheet时生成的xls文件打开时会报错)
@@ -233,10 +232,12 @@ public final class ExcelUtil {
             out = new FileOutputStream(fileDir);
             workbook.write(out);
         } catch (Exception e) {
-            throw e;
+            log.error("{}",e);
         } finally {
             try {
+                if (out != null) {
                 out.close();
+                }
             } catch (IOException e) {
                 log.error("{}",e);
             }
@@ -349,7 +350,7 @@ public final class ExcelUtil {
                     continue;
                 Object obj;
                 // 日期
-                if (cell!=null && cell.getCellType() == 0 && DateUtil.isCellDateFormatted(cell))
+                if (cell.getCellType() == 0 && DateUtil.isCellDateFormatted(cell))
                 {
                     //用于转化为日期格式
                     obj = cell.getDateCellValue();
@@ -357,7 +358,7 @@ public final class ExcelUtil {
                 }
                 else if (cell.getCellType() == HSSFCell.CELL_TYPE_NUMERIC) {
                     // 返回数值类型的值
-                    Object inputValue = null;// 单元格值
+                    Object inputValue;// 单元格值
                     Long longVal = Math.round(cell.getNumericCellValue());
                     Double doubleVal = cell.getNumericCellValue();
                     if (Double.parseDouble(longVal + ".0") == doubleVal){   //判断是否含有小数位.0
@@ -367,7 +368,7 @@ public final class ExcelUtil {
                         inputValue = doubleVal;
                     }
                     DecimalFormat df = new DecimalFormat("##########.##");
-                    obj = String.valueOf(df.format(inputValue));
+                    obj = df.format(inputValue);
                 }
                 else {
                     obj = cell + "";
@@ -408,9 +409,7 @@ public final class ExcelUtil {
             list.add(t);
         }
         try {
-            if (inputStream != null) {
-                inputStream.close();
-            }
+            inputStream.close();
         }
         catch (IOException e) {
             log.error("{}",e);
