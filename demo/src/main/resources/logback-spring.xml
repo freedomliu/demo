@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- debug当此属性设置为true时，将打印出logback内部日志信息，实时查看logback运行状态。默认值为false。-->
 <configuration debug="false">
-
+    <property name="LOG_HOME" value="/usr/local/log" />
     <!-- 业务日志 -->
     <appender name="APP_INFO_LOG" class="ch.qos.logback.core.rolling.RollingFileAppender">
         <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
             <!--日志文件输出的文件名-->
-            <FileNamePattern>F:data/log/demo_monitor_%d{yyyy-MM-dd}.log</FileNamePattern>
+            <FileNamePattern>${LOG_HOME}/demo_monitor_%d{yyyy-MM-dd}.log</FileNamePattern>
             <!--日志文件保留天数-->
             <MaxHistory>30</MaxHistory>
         </rollingPolicy>
@@ -20,13 +20,13 @@
 
     <!--异常日志-->
     <appender name="APP_ERROR_LOG" class="ch.qos.logback.core.rolling.RollingFileAppender">
-        <file>F:data/log/demo_monitor_error.log</file>
+        <file>${LOG_HOME}/demo_monitor_error.log</file>
         <filter class="ch.qos.logback.classic.filter.ThresholdFilter">
             <level>ERROR</level>
         </filter>
         <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
             <!--日志文件输出的文件名-->
-            <FileNamePattern>F:data/log/demo_monitor_error_%d{yyyy-MM-dd}.log</FileNamePattern>
+            <FileNamePattern>${LOG_HOME}/demo_monitor_error_%d{yyyy-MM-dd}.log</FileNamePattern>
             <!--日志文件保留天数-->
             <MaxHistory>30</MaxHistory>
         </rollingPolicy>
@@ -42,7 +42,7 @@
     <appender name="SQL_LOG" class="ch.qos.logback.core.rolling.RollingFileAppender">
         <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
             <!--日志文件输出的文件名-->
-            <FileNamePattern>F:data/log/demo_monitor_sql_%d{yyyy-MM-dd}.log</FileNamePattern>
+            <FileNamePattern>${LOG_HOME}/demo_monitor_sql_%d{yyyy-MM-dd}.log</FileNamePattern>
             <!--<FileNamePattern>C:/logs/log.@build.finalName@.%d{yyyy-MM-dd}.log</FileNamePattern>-->
             <!--日志文件保留天数-->
             <MaxHistory>30</MaxHistory>
