@@ -1,8 +1,37 @@
 [
   {
+    "success": {
+      "fields": {
+        "Success 200": [
+          {
+            "group": "Success 200",
+            "optional": false,
+            "field": "varname1",
+            "description": "<p>No type.</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "varname2",
+            "description": "<p>With type.</p>"
+          }
+        ]
+      }
+    },
+    "type": "",
+    "url": "",
+    "version": "0.0.0",
+    "filename": "./public/apidoc/main.js",
+    "group": "F__temp_demo_public_apidoc_main_js",
+    "groupTitle": "F__temp_demo_public_apidoc_main_js",
+    "name": ""
+  },
+  {
     "type": "get",
     "url": "/user/:id",
-    "title": "Request User information",
+    "title": "Request User information [标题]",
+    "description": "<p>api描述</p>",
     "name": "GetUser",
     "group": "User",
     "parameter": {
@@ -66,6 +95,11 @@
     },
     "version": "0.0.0",
     "filename": "./src/main/java/com/example/demo/controller/ApidocTestController.java",
-    "groupTitle": "User"
+    "groupTitle": "User",
+    "sampleRequest": [
+      {
+        "url": "请求示例工具的地址前缀，当有此项时，会出现该工具/user/:id"
+      }
+    ]
   }
 ]

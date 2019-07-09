@@ -3,6 +3,13 @@ package com.example.demo.controller;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 
+/**
+ * apidoc使用方法在云笔记里
+ * <p>Title: ApidocTestController</p>  
+ * <p>Description: </p>  
+ * @author liuxiangtao90  
+ * @date 2019年7月9日 下午4:01:06
+ */
 @Controller
 public class ApidocTestController {
 
@@ -15,7 +22,8 @@ public class ApidocTestController {
      * @Return:
      */
     /**
-     * @api {get} /user/:id Request User information
+     * @api {get} /user/:id Request User information [标题]
+     * @apiDescription api描述
      * @apiName GetUser
      * @apiGroup User
      *
