@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html xmlns:v-bind="http://www.w3.org/ns/wsdl">
+<head>
+    <meta charset="UTF-8">
+    <title>vue练习</title>
+    <script src="/js/vue.js"></script>
+    <!-- 引入样式 -->
+    <link rel="stylesheet" href="https://cdn.bootcss.com/element-ui/2.8.2/theme-chalk/index.css">
+    <!-- 引入组件库 -->
+    <script src="https://cdn.bootcss.com/element-ui/2.8.2/index.js"></script>
+    <style>
+
+    </style>
+</head>
+<body>
+    <input id="app" v-if="seen" v-bind:value="message">
+</body>
+    <script>
+        var app3 = new Vue({
+            el: '#app',
+            data: {
+                message: 'Hello Vue!',
+                seen:false
+            }
+        })
+    </script>
+</html>

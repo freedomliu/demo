@@ -329,8 +329,7 @@ public final class ExcelUtil {
         // 标题总列数
         Field[] filed = bean.getDeclaredFields();
         Map<Integer, Field> map = new HashMap<>();
-        for (int i = 0; i < filed.length; i++)
-        {
+        for (int i = 0; i < filed.length; i++) {
             ImportIndex excelIndex = filed[i].getAnnotation(ImportIndex.class);
             if ( excelIndex != null ) {
                 int index = excelIndex.index();

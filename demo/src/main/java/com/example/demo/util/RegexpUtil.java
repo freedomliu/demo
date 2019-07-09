@@ -11,4 +11,5 @@ public class RegexpUtil {
     public static final String REGEX_MOBILE = "^[1][0-9]{10}$";
 
     // 邮箱
-    public static final String  REGEX_EMAIL = "^([a-z0-9A-Z]+[-|\\.]?)+[a-z0-9A-Z]@([a-z0-9A-Z]+(-[a-z0-9A-Z]+)?\\.)+[a-zA-Z]{2,}$";}
+    public static final String  REGEX_EMAIL = "^([a-z0-9A-Z]+[-|\\.]?)+[a-z0-9A-Z]@([a-z0-9A-Z]+(-[a-z0-9A-Z]+)?\\.)+[a-zA-Z]{2,}$";
+}

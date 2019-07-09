@@ -15,23 +15,23 @@ import java.util.List;
  * @Date: 2019/1/14 09:04
  * @Description:字段校验测试类
  */
-@Controller
+/*@Controller
 public class ValidatorTestController {
 
-    /**
+    *//**
      * @Decription:
      * @Author: liuxiangtao90
      * @CreateDate: Created in 2019/1/14 9:18
      * @param:
      * @param
      * @Return: java.lang.String
-     */
+     *//*
     @GetMapping (name = "validator")
     public String validator() {
         return "validator";
     }
 
-    /**
+    *//**
      * @Decription:
      * @Author: liuxiangtao90
      * @CreateDate: Created in 2019/1/14 9:21
@@ -39,7 +39,7 @@ public class ValidatorTestController {
      * @param user
      * @param result
      * @Return: java.lang.String
-     */
+     *//*
     @PostMapping(name = "validator")
     public void validator(@Valid User user, BindingResult result) {
         if (result.hasErrors()){
@@ -49,4 +49,4 @@ public class ValidatorTestController {
             }
         }
     }
-}
+}*/
